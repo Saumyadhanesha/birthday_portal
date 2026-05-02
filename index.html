@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎀 Secret Birthday Portal 🎀</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <span class="corner-bow top-left">🎀</span>
+        <span class="corner-bow top-right">🎀</span>
+        <span class="corner-bow bottom-left">🎀</span>
+        <span class="corner-bow bottom-right">🎀</span>
+        
+        <!-- Hello Kitty Face -->
+        <div class="kitty-face">
+            <div class="kitty-eyes">
+                <div class="kitty-eye"></div>
+                <div class="kitty-eye"></div>
+            </div>
+            <div class="kitty-nose"></div>
+            <div class="kitty-whiskers">
+                <div class="whisker"></div>
+                <div class="whisker"></div>
+                <div class="whisker"></div>
+                <div class="whisker"></div>
+                <div class="whisker"></div>
+                <div class="whisker"></div>
+            </div>
+            <div class="kitty-bow">
+                <div class="bow-loop"></div>
+                <div class="bow-loop"></div>
+                <div class="bow-center"></div>
+            </div>
+        </div>
+        
+        <h1>✨ Welcome! ✨</h1>
+        <h2>Enter the Secret Birthday Portal</h2>
+        
+        <form class="login-form" onsubmit="return validateLogin(event)">
+            <div class="input-group">
+                <label for="username">🌸 Username</label>
+                <input type="text" id="username" placeholder="Enter your username..." required>
+            </div>
+            <div class="input-group">
+                <label for="password" >🔑 Password</label>
+                <div class="password-wrapper">
+                    <input type="password" id="password" placeholder="Enter your password..." required>
+                    <button type="button" class="eye-button" onclick="togglePassword()">👁️</button>
+                </div>
+            </div>
+            <button type="submit" class="login-btn">🎂 Enter the Party! 🎂</button>
+            <p class="error-msg" id="error">Oopsie! Wrong credentials 🙈</p>
+        </form>
+    </div>
+
+    <script>
+        function validateLogin(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMsg = document.getElementById('error');
+            
+            if (username === 'delulu nigi' && password === 'cute@khargosh0305') {
+                sessionStorage.setItem('authenticated', 'true');
+                window.location.href = 'page1.html';
+            } else {
+                errorMsg.style.display = 'block';
+                setTimeout(() => {
+                    errorMsg.style.display = 'none';
+                }, 3000);
+            }
+            
+            return false;
+        }
+
+        function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            const eyeButton = document.querySelector('.eye-button');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeButton.textContent = '👁️‍🗨️';
+            } else {
+                passwordInput.type = 'password';
+                eyeButton.textContent = '👁️';
+            }
+        }
+    </script>
+</body>
+</html>

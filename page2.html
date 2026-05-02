@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌸 Birthday Wishes Continued 🌸</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="cat-bg">
+    <div class="container">
+        <span class="corner-bow top-left">🎀</span>
+        <span class="corner-bow top-right">🎀</span>
+        <span class="corner-bow bottom-left">🎀</span>
+        <span class="corner-bow bottom-right">🎀</span>
+        
+        <!-- Hello Kitty Face -->
+        <div class="kitty-face">
+            <div class="kitty-eyes">
+                <div class="kitty-eye"></div>
+                <div class="kitty-eye"></div>
+            </div>
+            <div class="kitty-nose"></div>
+            <div class="kitty-whiskers">
+                <div class="whisker"></div>
+                <div class="whisker"></div>
+                <div class="whisker"></div>
+                <div class="whisker"></div>
+                <div class="whisker"></div>
+                <div class="whisker"></div>
+            </div>
+            <div class="kitty-bow">
+                <div class="bow-loop"></div>
+                <div class="bow-loop"></div>
+                <div class="bow-center"></div>
+            </div>
+        </div>
+        
+        <div class="birthday-content">
+            <div class="sparkles">🌷🦋💝🦋🌷</div>
+            <h1>More Wishes Cutu</h1>
+            <p class="subtitle">Because one page wasn't enough ✨</p>
+            
+            <div class="cake-emoji">🧁</div>
+            
+            <div class="message-box">
+                <p>
+                    A Few Birthday Wishes For You: 🌟<br><br>
+                    🎀 I hope u become the best doctor ever!<br><br>
+                    🌸 Hope you make ur parents proud of urself!<br><br>
+                    💖 I hope you travel whole world and found someone who makes u happy!<br><br>
+                    ✨ This may sound selfish but i hope we meet soon!<br><br>
+                    🎈 And most importantly may you always know how special and important you are! 🎈<br><br>
+                    You deserve all the happiness in the world. Never forget that!💫
+                </p>
+            </div>
+            
+            <div class="sparkles">🎂🎀🌟🎀🎂</div>
+            
+            <p style="color: #ff6b8a; font-size: 1.3rem; font-weight: 600; margin-top: 20px;">
+                Wishing you the happiest birthday ever 🎉
+            </p>
+            
+            <div class="nav-buttons">
+                <a href="page1.html" class="nav-btn">← Back to Page 1</a>
+                <a href="index.html" class="nav-btn" onclick="sessionStorage.removeItem('authenticated')">🚪 Logout</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confetti -->
+    <script>
+        // Check authentication
+        if (sessionStorage.getItem('authenticated') !== 'true') {
+            window.location.href = 'index.html';
+        }
+        
+        // Create random heading background with images
+        function createHelloKittyBackground() {
+            const images = ['h1.jpeg', 'h2.jpeg', 's3.jpeg', 's4.jpeg', 's5.jpeg'];
+            
+            for (let i = 0; i < 20; i++) {
+                const img = document.createElement('img');
+                img.src = images[Math.floor(Math.random() * images.length)];
+                img.className = 'hello-kitty-bg';
+                
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                const rotation = Math.random() * 360;
+                const size = Math.random() * 60 + 50;
+                
+                img.style.position = 'fixed';
+                img.style.left = x + '%';
+                img.style.top = y + '%';
+                img.style.transform = `translate(-50%, -50%) rotate(${rotation}deg)`;
+                img.style.width = size + 'px';
+                img.style.height = size + 'px';
+                img.style.opacity = '0.3';
+                img.style.pointerEvents = 'none';
+                img.style.zIndex = '-1';
+                img.style.objectFit = 'contain';
+                
+                document.body.appendChild(img);
+            }
+        }
+        
+        createHelloKittyBackground();
+        
+        // Create confetti
+        const confettiEmojis = ['🎀', '💖', '🌸', '✨', '🧁', '🎁', '🌷', '🦋'];
+        
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.textContent = confettiEmojis[Math.floor(Math.random() * confettiEmojis.length)];
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            document.body.appendChild(confetti);
+            
+            setTimeout(() => confetti.remove(), 4000);
+        }
+        
+        setInterval(createConfetti, 300);
+    </script>
+</body>
+</html>
