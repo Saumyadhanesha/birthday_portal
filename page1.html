@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎂 Happy Birthday 🎂</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <span class="corner-bow top-left">🎀</span>
+        <span class="corner-bow top-right">🎀</span>
+        <span class="corner-bow bottom-left">🎀</span>
+        <span class="corner-bow bottom-right">🎀</span>
+        
+        <!-- Hello Kitty Face -->
+        <div class="kitty-face">
+            <div class="kitty-eyes">
+                <div class="kitty-eye"></div>
+                <div class="kitty-eye"></div>
+            </div>
+            <div class="kitty-nose"></div>
+            <div class="kitty-whiskers">
+                <div class="whisker"></div>
+                <div class="whisker"></div>
+                <div class="whisker"></div>
+                <div class="whisker"></div>
+                <div class="whisker"></div>
+                <div class="whisker"></div>
+            </div>
+            <div class="kitty-bow">
+                <div class="bow-loop"></div>
+                <div class="bow-loop"></div>
+                <div class="bow-center"></div>
+            </div>
+        </div>
+        
+        <div class="birthday-content">
+            <div class="sparkles">✨🌟💖🌟✨</div>
+            <h1>Happiest Birthdayyy</h1>
+            <p class="birthday-name">🎀 To My Cutie 🎀</p>
+            <div class="cake-emoji">🎂</div>
+            
+            <div class="message-box">
+                <p>
+                    Hey My Cutie 🌸<br><br>
+                    HEYYYYYYY MERI RASMALAI HAPPIEST BIRTHDAY TO MY ONE AND ONLY FAVOURITE GIRL AARSHI YOU DONT KNOW HOW HAPPY I AM TODAY YOU REALLY DESERVE EVERY HAPPINESS IN THIS WORLD THANKS FOR MAKING ME SMILE,LAUGH, HAPPY FROM INSIDE OUT THANK YOU FOR MAKING ME FEEL LIKE HOME YOU LITERALLY CAME IN MY LIFE AT MOST RANDOM TIME OF MY LIFE AND BECAME MY FAVORITE PERSON IM NO TIME IM SOO GRATEFUL FOR YOU I ALSO DONT BELIEVE IN GOD BUT FOR YOU IM LITERALLY PRAYING TO GOD THAT PLEASE KEEP HER SAFE AND GIVE HER HAPPINESS SHE DESERVES I HOPE YOU ACHIEVE YOUR EACH AND EVERY GOALS ILL ALWAYS BE CHEERING FOR YOU I WISH I WAS THERE TO CELEBRATE WITH YOU I CAN'T EVEN GIVE YOU A GIFT THIS WAY AND ITS SOO FRUSTRATING BUT ANYWAYS HAPPIEST BIRTHDAY FROM YOUR NUMBER ONE FAN TO MY STAR MY HAPPINESS AND MY FLEX LITERALLY THANKS FOR EXISTING 💓💓💓💓💓
+                </p>
+            </div>
+            
+            <div class="sparkles">🎁🎊🎀🎊🎁</div>
+            
+            <div class="nav-buttons">
+                <a href="page2.html" class="nav-btn">More Birthday Wishes! →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confetti -->
+    <script>
+        // Check authentication
+        if (sessionStorage.getItem('authenticated') !== 'true') {
+            window.location.href = 'index.html';
+        }
+        
+        // Create confetti
+        const confettiEmojis = ['🎀', '💖', '🌸', '✨', '🎂', '🎁', '🎈', '🎉'];
+        
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.textContent = confettiEmojis[Math.floor(Math.random() * confettiEmojis.length)];
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+            document.body.appendChild(confetti);
+            
+            setTimeout(() => confetti.remove(), 4000);
+        }
+        
+        setInterval(createConfetti, 300);
+    </script>
+</body>
+</html>
